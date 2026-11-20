@@ -1,0 +1,59 @@
+/* Slider layout only. Colors, cards, avatar and text styles come from globals.css */
+
+.tm-wrap {
+  position: relative;
+  width: 100%;
+  margin: 2rem 0 0;
+}
+
+.team.tm-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 8px 4px 16px;
+}
+.tm-track::-webkit-scrollbar { display: none; }
+.tm-track:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+.tm-track > li {
+  flex: 1 0 260px; /* cards share the full width; past 260px each, the row scrolls */
+  scroll-snap-align: start;
+}
+
+/* Placeholder person icon, fits inside your .avatar */
+.tm-icon { width: 70%; height: 70%; display: block; margin: auto; opacity: 0.8; }
+
+/* Arrows: colors come from currentColor, so they follow your theme */
+.tm-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  backdrop-filter: blur(6px);
+  border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+  border-radius: 50%;
+  transition: opacity 0.2s;
+}
+.tm-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.tm-btn:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.tm-btn:disabled { opacity: 0; pointer-events: none; }
+.tm-prev { left: 12px; }
+.tm-next { right: 12px; }
+
+@media (max-width: 700px) {
+  .tm-btn { display: none; } /* swipe on touch */
+}
+@media (prefers-reduced-motion: reduce) {
+  .tm-btn { transition: none; }
+}

@@ -1,10 +1,9 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Pillars from "@/components/Pillars";
 import Vision from "@/components/Vision";
 import Approach from "@/components/Approach";
 import Research from "@/components/Research";
-import Team from "@/components/Team";
+import Team from "@/components/Team/Team";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -14,7 +13,6 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <Pillars />
         <Vision />
         <Approach />
         <Research />
