@@ -56,7 +56,7 @@ export default function Reveal({ as = "div", className, delay = 0, intro = false
       className={className}
       initial={hidden}
       whileInView={shown}
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: false, margin: "-60px" }}
       transition={transition}
     >
       {children}
